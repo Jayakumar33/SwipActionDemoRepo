@@ -4,11 +4,12 @@
 
 
     <test name="iOSApp 1">
-        <parameter name="version" value="14"/>
+        <parameter name="version" value="16"/>
         <parameter name="platform" value="iOS"/>
-        <parameter name="device" value="iPhone.*"/>
+        <parameter name="device" value="iPhone 14"/>
         <classes>
-            <class name="iOSApp"/>
+<!--            <class name="iOSApp"/>-->
+             <class name="sampleScriptBigbasket"/>
         </classes>
     </test>
 </suite>

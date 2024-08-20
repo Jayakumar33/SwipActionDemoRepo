@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.net.URL;
 import java.util.List;
 
@@ -24,19 +26,21 @@ public class AndroidApp {
     public void AndroidApp1(String device, String version, String platform) {
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("build", "Java TestNG");
-            capabilities.setCapability("name", platform + " " + device + " " + version);
+            capabilities.setCapability("build", "Java-app-profilling");
+            capabilities.setCapability("name", "App-profilling");
             capabilities.setCapability("deviceName", device);
             capabilities.setCapability("platformVersion", version);
             capabilities.setCapability("platformName", platform);
             capabilities.setCapability("isRealMobile", true);
             //AppURL (Create from Wikipedia.apk sample in project)
-            capabilities.setCapability("app", app_id); //Enter your app url
+            capabilities.setCapability("app", "lt://APP10160492431717404631765267"); //Enter your app url
             capabilities.setCapability("deviceOrientation", "PORTRAIT");
             capabilities.setCapability("network", false);
             capabilities.setCapability("visual", true);
+            capabilities.setCapability("appProfiling", true);
             capabilities.setCapability("devicelog", true);
             capabilities.setCapability("autoGrantPermissions", true);
+            capabilities.setCapability("appiumVersion", "1.22.3");
 
             //capabilities.setCapability("geoLocation", "HK");
 
@@ -79,6 +83,17 @@ public class AndroidApp {
 
             MobileElement Home = (MobileElement) driver.findElementByAccessibilityId("Home");
             Home.click();
+            Thread.sleep(4000);
+
+
+            // pagesource
+
+//            String pageSource = driver.getPageSource();
+//            File file = new File("pagesourceLambdatest.xml");
+//            FileWriter writer = new FileWriter(file);
+//            writer.write(pageSource);
+//            writer.close();
+//            Thread.sleep(4000);
 
             //Opens the browser
             MobileElement browser = (MobileElement) driver.findElementByAccessibilityId("Browser");
